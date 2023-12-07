@@ -1,4 +1,9 @@
 RewriteEngine On
-RewriteRule ^.*php$ index.php [L]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule . index.php [L]
+
+# Si le fichier demandé existe réellement, ne faites rien
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Sinon, redirigez vers index.php
+RewriteRule ^ index.php [L]

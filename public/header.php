@@ -1,4 +1,3 @@
-<div class="container_site">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Holtwood+One+SC' rel='stylesheet' type='text/css'> 
-    <link rel="stylesheet" type="text/css" href="public/styles.css"> 
+    <link rel="stylesheet" type="text/css" href="../public/styles.css"> 
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <title>MOTO VIBE</title>
@@ -23,11 +22,11 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.php">MOTO VIBE</a>
+            <a class="navbar-brand" href="../index.php">MOTO VIBE</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li><a href="index.php">Accueil</a></li>
+                <li><a href="../index.php">Accueil</a></li>
                 <li><a href="connexion.php">connexion</a></li>
                 <li><a href="inscription.php">inscription</a></li>
                 <li><a href="gestionProduit.php">Gestion produit</a></li>
@@ -45,17 +44,3 @@
     </div>
 </nav>
 
-
-    <br><br>
-    <section class="hero">
-        <div class="container">
-            <h2>Bienvenue chez MOTO VIBE</h2>
-            <p>Découvrez notre sélection de motos scooters et quads de qualité.</p>
-            <a href="views/tousNosProduits.php" class="btn">Voir tous nos produits</a>
-        </div>
-    </section>
-
-    <br><br>
-</div>
-<br><br><br><br><br><br>
-<?php include 'public/footer.php'?>
