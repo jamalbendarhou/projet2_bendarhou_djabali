@@ -1,3 +1,6 @@
+
+
+
 <div class="container_site">
 <!DOCTYPE html>
 <html lang="en">
@@ -28,34 +31,28 @@
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
                 <li><a href="index.php">Accueil</a></li>
-                <li><a href="connexion.php">connexion</a></li>
-                <li><a href="inscription.php">inscription</a></li>
-                <li><a href="gestionProduit.php">Gestion produit</a></li>
+                <li><a href="views/login.php">Connexion</a></li>
+                <li><a href="views/inscription.php">Inscription</a></li>
+                <li><a href="views/gestionProduit.php">Gestion produit</a></li>
             </ul>
-
-            <!-- <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="panier.php" class="btn btn-primary navbar-btn">
-                        <i class="bi bi-cart4"></i>
-                        <?php echo $quantite; ?>
-                    </a>
-                </li>
-            </ul> -->
         </div>
     </div>
 </nav>
 
+<br><br>
+<section class="hero">
+    <div class="container">
+        <h2>Bienvenue chez MOTO VIBE</h2>
+        <p>Découvrez notre sélection de motos scooters et quads de qualité.</p>
+        <a href="views/tousNosProduits.php" class="btn">Voir tous nos produits</a>
+    </div>
+</section>
 
-    <br><br>
-    <section class="hero">
-        <div class="container">
-            <h2>Bienvenue chez MOTO VIBE</h2>
-            <p>Découvrez notre sélection de motos scooters et quads de qualité.</p>
-            <a href="views/tousNosProduits.php" class="btn">Voir tous nos produits</a>
-        </div>
-    </section>
-
-    <br><br>
+<br><br>
 </div>
-<br><br><br><br><br><br>
-<?php include 'public/footer.php'?>
+
+<?php 
+include 'public/footer.php';
+?>
+</body>
+</html>
