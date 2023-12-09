@@ -2,49 +2,49 @@
 class Crud
 {
     public $connexion;
+
     public function __construct()
-{
-    $host = "localhost";
-    $db = "ecom2_project";
-    $user = "root";
-    $password = "";
+    {
+        $host = "localhost";
+        $db = "ecom2_project";
+        $user = "root";
+        $password = "";
 
-    $dsn = "mysql:host=$host;dbname=$db;charset=UTF8";
+        $dsn = "mysql:host=$host;dbname=$db;charset=UTF8";
 
-    try {
-        $this->connexion = new PDO($dsn, $user, $password);
-        if ($this->connexion) {
-             
+        try {
+            $this->connexion = new PDO($dsn, $user, $password);
+            if ($this->connexion) {
+                
+            }
+        } catch (PDOException $e) {
+            echo $e->getMessage();
         }
-    } catch (PDOException $e) {
-        echo $e->getMessage();
     }
-}
 
     /**
-     * methode pour récupérer toutes les données d'une table 
+     * Methode pour récupérer toutes les données d'une table 
      * @param string $table
      * @return array
-    */
-    public function getAll(string $table):array
+     */
+    public function getAll(string $table): array
     {
-
         $PDOStatement = $this->connexion->query("SELECT * FROM $table ORDER BY id ASC");
         $data = $PDOStatement->fetchAll(PDO::FETCH_ASSOC);
         return $data;
     }
 
-    // methode pour un élément d'une table avec son id 
-    public function getById(string $table,int $id):array
+    // Methode pour un élément d'une table avec son id 
+    public function getById(string $table, int $id): array
     {
-        $PDOStatement = $this->connexion->prepare("SELECT * FROM $table WHERE id = :id"); // preparation de rqt sql pour affichage 
+        $PDOStatement = $this->connexion->prepare("SELECT * FROM $table WHERE id = :id");
         $PDOStatement->bindParam(':id', $id, PDO::PARAM_INT);
         $PDOStatement->execute();
         $data = $PDOStatement->fetchAll(PDO::FETCH_ASSOC);
         return $data;
     }
 
-    // methode pour ajouter un item 
+    // Methode pour ajouter un item 
     public function add(string $request, array $itemdata): int|bool
     {
         $PDOStatement = $this->connexion->prepare($request);
@@ -62,11 +62,26 @@ class Crud
         return $this->connexion->lastInsertId();
     }
 
-    public function delete(string $table,int $id): string
+    // Methode pour récupérer un seul résultat
+    public function getSingleResult(string $query, $params = array())
+    {
+        $stmt = $this->executeQuery($query, $params);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    // Methode pour exécuter une requête
+    protected function executeQuery(string $query, array $params = array())
+    {
+        $stmt = $this->connexion->prepare($query);
+        $stmt->execute($params);
+        return $stmt;
+    }
+
+    public function delete(string $table, int $id): string
     {
         $element = $this->getById($table, $id);
         if ($element) {
-            $PDOStatement = $this->connexion->prepare("DELETE FROM $table WHERE id = :id"); // preparation de requete sql 
+            $PDOStatement = $this->connexion->prepare("DELETE FROM $table WHERE id = :id");
             $PDOStatement->bindParam(':id', $id, PDO::PARAM_INT);
             $PDOStatement->execute();
             return "L'élément avec l'id " . $id . " a été supprimée.";
