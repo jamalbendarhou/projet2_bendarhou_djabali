@@ -39,13 +39,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($stmt->execute()) {
         echo "Inscription réussie !";
         // Redirection vers une page de succès ou autre
-        header("Location: ../views/inscription_success.php"); // Modifiez ce chemin selon l'emplacement réel de votre fichier inscription_success.php
+        header("Location: ../views/login.php"); // Modifiez ce chemin selon l'emplacement réel de votre fichier inscription_success.php
         exit();
     } else {
         echo "Erreur lors de l'inscription : " . $stmt->errorInfo()[2];
     }
 } else {
-    header("Location: inscription.php");
+    header("Location: login.php");
     exit();
 }
 ?>
