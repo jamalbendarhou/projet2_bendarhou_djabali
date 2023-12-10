@@ -3,8 +3,7 @@ class Crud
 {
     public $connexion;
 
-    public function __construct()
-    {
+    public function __construct() {
         $host = "localhost";
         $db = "ecom2_project";
         $user = "root";
@@ -14,11 +13,13 @@ class Crud
 
         try {
             $this->connexion = new PDO($dsn, $user, $password);
-            if ($this->connexion) {
-                
+            if (!$this->connexion) {
+                die("Erreur de connexion à la base de données");
             }
+            // Ajoutez un message pour vérifier que la connexion est établie
+            echo "Connexion à la base de données établie avec succès!";
         } catch (PDOException $e) {
-            echo $e->getMessage();
+            echo "Erreur de connexion à la base de données : " . $e->getMessage();
         }
     }
 
@@ -95,3 +96,4 @@ class Crud
         $this->connexion = null;
     }
 }
+
