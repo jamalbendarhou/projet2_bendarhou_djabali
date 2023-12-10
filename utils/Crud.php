@@ -16,8 +16,7 @@ class Crud
             if (!$this->connexion) {
                 die("Erreur de connexion à la base de données");
             }
-            // Ajoutez un message pour vérifier que la connexion est établie
-            echo "Connexion à la base de données établie avec succès!";
+            
         } catch (PDOException $e) {
             echo "Erreur de connexion à la base de données : " . $e->getMessage();
         }

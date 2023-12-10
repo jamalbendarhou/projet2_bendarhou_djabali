@@ -1,15 +1,13 @@
 <?php
-// Inclure le fichier qui définit la classe ProductController
+
 include '../controllers/ProductController.php';
 
 // Inclure le header
 include '../public/header.php';
 echo "<br><br><br>";
 
-// Instancier la classe ProductController
 $controller = new ProductController();
 
-// Appeler la méthode pour récupérer tous les produits
 $products = $controller->getAllProducts();
 
 // Afficher les produits

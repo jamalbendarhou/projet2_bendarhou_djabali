@@ -53,6 +53,7 @@
                         <input type="hidden" name="billing_address" value="1"> <!-- ID d'une adresse fictive -->
                         <input type="hidden" name="shipping_address" value="1"> <!-- ID d'une adresse fictive -->
 
+
                         <center><input type="submit" name="envoyer" class="btn" value="Inscription" /></center>
                     </form>
                 </div>
