@@ -22,7 +22,9 @@
                 <div class="col-lg-10 col-lg-offset-1">
                     
                     <a href="manage_products.php" class="btn">Gestion des Produits</a>
+                    <a href="manage_users.php" class="btn">Gestion des Utilisateurs</a>
                     <a href="manage_orders.php" class="btn">Visualiser les Commandes</a>
+                    
                 </div>
             </div>
         </div>
