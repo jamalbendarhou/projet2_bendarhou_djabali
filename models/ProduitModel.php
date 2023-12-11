@@ -11,31 +11,42 @@ class ProduitModel extends Crud
 
     public function getProduitById($productId)
     {
-        return $this->getById('product', $productId);
+        $query = "SELECT * FROM product WHERE id = :id";
+        $params = array(':id' => $productId);
+        return $this->getSingleResult($query, $params);
     }
 
     public function ajouterProduit($data)
     {
-        $request = "INSERT INTO product (name, qtty, price, url_img, description) 
-                    VALUES (:name, :qtty, :price, :url_img, :description)";
+        $query = "INSERT INTO product (name, qtty, price) VALUES (:name, :qtty, :price)";
+        $params = array(
+            ':name' => $data['name'],
+            ':qtty' => $data['qtty'],
+            ':price' => $data['price']
+        );
 
-        return $this->add($request, $data);
+        return $this->executeQuery($query, $params);
     }
 
     public function modifierProduit($productId, $newData)
     {
-        $request = "UPDATE product 
-                    SET name = :name, qtty = :qtty, price = :price, url_img = :url_img, description = :description 
-                    WHERE id = :id";
+        $query = "UPDATE product SET name = :name, qtty = :qtty, price = :price WHERE id = :id";
+        $params = array(
+            ':id' => $productId,
+            ':name' => $newData['name'],
+            ':qtty' => $newData['qtty'],
+            ':price' => $newData['price']
+        );
 
-        $newData['id'] = $productId;
-
-        return $this->update($request, $newData);
+        return $this->executeQuery($query, $params);
     }
 
     public function supprimerProduit($productId)
     {
-        return $this->delete('product', $productId);
+        $query = "DELETE FROM product WHERE id = :id";
+        $params = array(':id' => $productId);
+
+        return $this->executeQuery($query, $params);
     }
 }
 ?>
