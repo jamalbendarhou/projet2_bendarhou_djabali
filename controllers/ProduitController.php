@@ -21,7 +21,9 @@ class ProduitController
         $productId = $this->produitModel->ajouterProduit($data);
 
         if ($productId) {
-            echo "Produit ajouté avec l'ID : $productId";
+            // Redirection en cas de succès
+            header("Location: manage_products.php");
+            exit();
         } else {
             echo "Erreur lors de l'ajout du produit.";
         }
@@ -32,7 +34,9 @@ class ProduitController
         $result = $this->produitModel->modifierProduit($productId, $newData);
 
         if ($result) {
-            echo "Produit mis à jour avec succès.";
+            // Redirection en cas de succès
+            header("Location: manage_products.php");
+            exit();
         } else {
             echo "Erreur lors de la mise à jour du produit.";
         }
@@ -42,8 +46,21 @@ class ProduitController
     {
         $result = $this->produitModel->supprimerProduit($productId);
 
-        echo $result;
+        if ($result) {
+            // Redirection en cas de succès
+            header("Location: manage_products.php");
+            exit();
+        } else {
+            echo "Erreur lors de la suppression du produit.";
+        }
     }
-}
+
+    
+    public function getProduitById($productId)
+    {
+        $produit = $this->produitModel->getProduitById($productId);
+        return $produit;
+    }
+    }
 
 ?>
