@@ -38,5 +38,43 @@ class UserModel extends Crud
         return $this->executeQuery($query, $params);
     }
     
+    public function updateUserDetails($data) {
+        $id = $data['id'];
+        $username = $data['username'];
+        $email = $data['email'];
+        $role_id = $data['role_id'];
+        $password = $data['password']; // Nouveau mot de passe
+    
+        // Hasher le nouveau mot de passe
+        $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+    
+        $query = "UPDATE user SET username = :username, email = :email, pwd = :password, role_id = :role_id WHERE id = :id";
+        $params = array(
+            ':id' => $id,
+            ':username' => $username,
+            ':email' => $email,
+            ':password' => $hashed_password, // Utiliser le mot de passe hashé
+            ':role_id' => $role_id
+            // Ajoutez d'autres paramètres pour les champs à mettre à jour...
+        );
+    
+        $stmt = $this->connexion->prepare($query);
+        $stmt->execute($params);
+    
+        return $stmt->rowCount() > 0; // Retourne vrai si au moins une ligne a été mise à jour
+    }
+
+    public function getAllUsers(): array {
+        $query = "SELECT u.*, r.name AS role FROM user u INNER JOIN role r ON u.role_id = r.id";
+        $PDOStatement = $this->connexion->query($query);
+        $users = $PDOStatement->fetchAll(PDO::FETCH_ASSOC);
+        return $users;
+    }
+    public function getUserById($id)
+{
+    $query = "SELECT * FROM user WHERE id = :id";
+    $params = array(':id' => $id);
+    return $this->getSingleResult($query, $params);
+}
 }
 ?>

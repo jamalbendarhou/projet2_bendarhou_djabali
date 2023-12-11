@@ -64,5 +64,35 @@ class UserController
             echo "Une erreur est survenue lors de l'inscription.";
         }
     }
+    public function getUsers() {
+        return $this->userModel->getAllUsers(); 
+    }
+    public function getUserById($id)
+{
+    // Utilisez votre modèle UserModel pour obtenir les détails de l'utilisateur par son ID
+    return $this->userModel->getUserById($id);
+}
+public function updateUser($data)
+{
+    // Vérifiez si l'ID de l'utilisateur à mettre à jour est présent dans les données
+    if (!isset($data['id'])) {
+        echo "ID de l'utilisateur non spécifié pour la mise à jour.";
+        exit();
+    }
+
+    // Appel de la méthode updateUserDetails du modèle pour effectuer la mise à jour
+    $updated = $this->userModel->updateUserDetails($data);
+
+    if ($updated) {
+        // Après la mise à jour, redirigez vers la page manage_users
+        header("Location: ../views/manage_users.php");
+        exit();
+    } else {
+        echo "Échec de la mise à jour des détails de l'utilisateur.";
+        // Gérez l'erreur ou redirigez vers une page appropriée en cas d'échec de la mise à jour
+    }
+}
+
+    
 }
 ?>
