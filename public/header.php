@@ -29,7 +29,6 @@
                 <li><a href="../index.php">Accueil</a></li>
                 <li><a href="../views/login.php">connexion</a></li>
                 <li><a href="inscription.php">inscription</a></li>
-                <li><a href="gestionProduit.php">Gestion produit</a></li>
             </ul>
 
             <!-- <ul class="nav navbar-nav navbar-right">

@@ -30,7 +30,6 @@
                 <li><a href="index.php">Accueil</a></li>
                 <li><a href="views/login.php">Connexion</a></li>
                 <li><a href="views/inscription.php">Inscription</a></li>
-                <li><a href="views/gestionProduit.php">Gestion produit</a></li>
             </ul>
         </div>
     </div>
