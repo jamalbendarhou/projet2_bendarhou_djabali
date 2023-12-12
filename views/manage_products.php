@@ -33,6 +33,7 @@
         <br>
 
         <?php
+        
         if (!empty($produits)) {
             ?>
             <table class="table">

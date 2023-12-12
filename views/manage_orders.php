@@ -34,6 +34,7 @@
         <br>
 
         <?php
+        
         if (!empty($orders)) {
             ?>
             <table class="table">

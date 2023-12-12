@@ -18,13 +18,15 @@ class ProduitModel extends Crud
 
     public function ajouterProduit($data)
     {
-        $query = "INSERT INTO product (name, qtty, price) VALUES (:name, :qtty, :price)";
+        $query = "INSERT INTO product (name, qtty, price, url_img, description) VALUES (:name, :qtty, :price, :url_img, :description)";
         $params = array(
             ':name' => $data['name'],
             ':qtty' => $data['qtty'],
-            ':price' => $data['price']
+            ':price' => $data['price'],
+            ':url_img' => $data['url_img'],
+            ':description' => $data['description']
         );
-
+    
         return $this->executeQuery($query, $params);
     }
 

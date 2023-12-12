@@ -1,5 +1,7 @@
 <?php
-// modifierProduit.php
+// Inclure le header
+include '../public/header.php';
+echo "<br><br><br>";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     require_once('../controllers/ProduitController.php');

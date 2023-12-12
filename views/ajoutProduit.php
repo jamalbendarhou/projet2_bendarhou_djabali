@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="row">
                     <div class="col-md-4">
                         <label for="image">Image</label>
-                        <input type="file" id="image" name="image" class="form-control" />
+                        <input type="file" id="image" name="image" class="form-control"  />
                     </div>
                 </div>
 

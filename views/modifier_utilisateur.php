@@ -53,6 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" type="text/css" href="../public/styles.css">
 </head>
 <body>
+
     <div class="container_site">
         <?php include '../public/header.php' ?>
         <br><br>
