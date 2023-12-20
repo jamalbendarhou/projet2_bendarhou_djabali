@@ -21,7 +21,7 @@ class ProduitController
         $productId = $this->produitModel->ajouterProduit($data);
 
         if ($productId) {
-            // Redirection en cas de succès
+            
             header("Location: manage_products.php");
             exit();
         } else {
@@ -34,7 +34,7 @@ class ProduitController
         $result = $this->produitModel->modifierProduit($productId, $newData);
 
         if ($result) {
-            // Redirection en cas de succès
+            
             header("Location: manage_products.php");
             exit();
         } else {
@@ -47,7 +47,7 @@ class ProduitController
         $result = $this->produitModel->supprimerProduit($productId);
 
         if ($result) {
-            // Redirection en cas de succès
+            
             header("Location: manage_products.php");
             exit();
         } else {
