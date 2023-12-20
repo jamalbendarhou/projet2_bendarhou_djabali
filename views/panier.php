@@ -8,9 +8,8 @@ session_start();
 $orderController = new OrderController();
 // Initialiser une variable pour stocker les produits du panier
 $paniers = [];
-
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,6 +30,11 @@ $paniers = [];
             <h2>Mon panier</h2>
         </div>
        
+        <!-- Bouton de retour -->
+        <div class="mb-3">
+            <a href="tousNosProduits.php" class="btn btn-primary">Retour</a>
+        </div>
+
         <br>
         <table class="table">
             <thead>
@@ -43,23 +47,23 @@ $paniers = [];
                 </tr>
             </thead>
             <tbody>
-    <?php foreach ($paniers as $produit) { ?>
-        <tr>
-            <th scope="row"><?php echo $produit['id']; ?></th>
-            <td><?php echo $produit['name']; ?></td>
-            <td><input min="1" max="<?php echo $produit['qtty']; ?>" type="number" value="<?php echo $produit['qtty']; ?>" name="quantiterDemander"></td>
-            <td><?php echo $produit['price']; ?></td>
-            <td>
-                <button type="submit" class="btn btn-info" name="modifierProduit">
-                    <i class="bi bi-pencil-square"></i>
-                </button>
-                <a href="supprimerPanier.php?id=<?php echo $produit['id']; ?>" class="btn btn-danger">
-                    <i class="bi bi-trash"></i>
-                </a>
-            </td>
-        </tr>
-    <?php } ?>
-</tbody>
+                <?php foreach ($paniers as $produit) { ?>
+                    <tr>
+                        <th scope="row"><?php echo $produit['id']; ?></th>
+                        <td><?php echo $produit['name']; ?></td>
+                        <td><input min="1" max="<?php echo $produit['qtty']; ?>" type="number" value="<?php echo $produit['qtty']; ?>" name="quantiterDemander"></td>
+                        <td><?php echo $produit['price']; ?></td>
+                        <td>
+                            <button type="submit" class="btn btn-info" name="modifierProduit">
+                                <i class="bi bi-pencil-square"></i>
+                            </button>
+                            <a href="supprimerPanier.php?id=<?php echo $produit['id']; ?>" class="btn btn-danger">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                <?php } ?>
+            </tbody>
         </table>
         
         <div id="paypal-payment-button"></div>
