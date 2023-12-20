@@ -19,7 +19,7 @@ if (is_array($products)) {
             <h3><?php echo $product['description']; ?></h3>
             <p>Prix : $<?php echo $product['price']; ?></p>
             <a href="produit_detail.php?id=<?php echo $product['id']; ?>" class="btn btn-primary">Voir</a>
-            <a href="#" class="btn btn-primary">Payer</a>
+            <a href="panier.php#" class="btn btn-primary">Payer</a>
         </div>
         <?php
     }

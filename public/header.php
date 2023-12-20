@@ -31,14 +31,13 @@
                 <li><a href="inscription.php">inscription</a></li>
             </ul>
 
-            <!-- <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a href="panier.php" class="btn btn-primary navbar-btn">
                         <i class="bi bi-cart4"></i>
-                        <?php echo $quantite; ?>
                     </a>
                 </li>
-            </ul> -->
+            </ul>
         </div>
     </div>
 </nav>

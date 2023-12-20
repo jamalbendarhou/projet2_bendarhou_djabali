@@ -5,7 +5,6 @@ $crud = new Crud();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $userController = new UserController();
 
-    // recupere les donnees de ba bd 
     $email = $_POST['email'];
     $username = $_POST['username'];
     $fname = $_POST['fname'];
@@ -14,11 +13,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $roleId = $_POST['role']; 
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-    // on affecte une adresse fictif par defaut 
     $billingAddressId = 1; 
     $shippingAddressId = 1; 
 
-    // insertion des donnees 
     $insertQuery = "INSERT INTO `user` (`email`, `token`, `username`, `fname`, `lname`, `pwd`, `billing_address_id`, `shipping_address_id`, `role_id`) 
                     VALUES (:email, 'random_token_generated_here', :username, :fname, :lname, :hashedPassword, :billingAddressId, :shippingAddressId, :roleId)";
 
