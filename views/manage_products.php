@@ -29,6 +29,7 @@
         </div>
         <div class="mb-3">
             <a href="ajoutProduit.php" class="btn btn-success">Ajouter un nouveau produit</a>
+            <a href="admin_dashboard.php" class="btn btn-primary">Retour</a>
         </div>
         <br>
 

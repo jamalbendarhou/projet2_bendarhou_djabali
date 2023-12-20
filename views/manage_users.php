@@ -30,7 +30,7 @@
         <div class="heading">
             <h2>Gestion des utilisateurs</h2>
         </div>
-        <!-- Possibilité d'ajouter des boutons ou des liens pour des fonctionnalités supplémentaires ici -->
+        <a href="admin_dashboard.php" class="btn btn-primary">Retour</a>
         <br>
 
         <?php
