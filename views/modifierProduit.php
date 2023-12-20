@@ -1,13 +1,10 @@
 <?php
-// Inclure le header
 include '../public/header.php';
 echo "<br><br><br>";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     require_once('../controllers/ProduitController.php');
     $produitController = new ProduitController();
-
-    // Récupérer les données du formulaire
     $productId = $_POST['product_id'];
 
     $newData = array(
@@ -18,12 +15,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     );
 
     $produitController->modifierProduit($productId, $newData);
-
-    // Redirection ou affichage de message après modification
     header("Location: manage_product.php");
     exit();
 } else {
-    // Afficher le formulaire de modification
     require_once('../controllers/ProduitController.php');
     $produitController = new ProduitController();
     
@@ -43,11 +37,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestion des produits</title>
     <link rel="stylesheet" type="text/css" href="../public/styles.css">
-    <!-- FontAwesome CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="..." crossorigin="anonymous">
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" integrity="...">
-    <!-- Bootstrap JavaScript (si nécessaire) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="..." crossorigin="anonymous"></script>
 </head>
 
@@ -62,7 +53,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <form method="post" action="">
                 <input type="hidden" name="product_id" value="<?php echo $productId; ?>">
-                <!-- Ajout des champs spécifiques à votre base de données -->
                 <div class="row">
                     <div class="col-md-12">
                         <label for="name">Nom  <span class="red">*</span></label>

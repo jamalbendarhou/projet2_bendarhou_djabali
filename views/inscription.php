@@ -1,4 +1,4 @@
-<!-- Inscription Page -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,7 +22,7 @@
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1">
                 <form id="inscription-form" method="post" action="../controllers/inscription_process.php" role="form">
-                        <!-- Champs du formulaire -->
+                        
                         <div class="form-group">
                             <label for="email">Email :</label>
                             <input type="email" name="email" id="email" class="form-control" required>
@@ -43,14 +43,14 @@
                             <label for="password">Mot de passe :</label>
                             <input type="password" name="password" id="password" class="form-control" required>
                         </div>
-                        <!-- Vous pouvez ajouter d'autres champs du formulaire ici -->
+                        
 
-                        <!-- Les champs comme le rôle et l'adresse seront attribués automatiquement -->
-                        <input type="hidden" name="role" value="3"> <!-- 3 correspond au rôle 'client' -->
+                       
+                        <input type="hidden" name="role" value="3">
 
-                        <!-- Adresse par défaut fictive (vous pouvez adapter ces champs en fonction de votre structure) -->
-                        <input type="hidden" name="billing_address" value="1"> <!-- ID d'une adresse fictive -->
-                        <input type="hidden" name="shipping_address" value="1"> <!-- ID d'une adresse fictive -->
+                        
+                        <input type="hidden" name="billing_address" value="1"> 
+                        <input type="hidden" name="shipping_address" value="1"> 
 
 
                         <center><input type="submit" name="envoyer" class="btn" value="Inscription" /></center>

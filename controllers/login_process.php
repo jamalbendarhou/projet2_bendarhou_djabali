@@ -16,11 +16,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $role = $user['role_id'];
 
         switch ($role) {
-            case 1: 
+            case 1: // si le role est admin ou super admin in redirige vers la page de gestion 
             case 2: 
                 header("Location:  ../views/admin_dashboard.php");
                 break;
-            case 3: 
+            case 3: // si le role est 3 donc utilisateur il redirige vers la page de produits 
                 header("Location:  ../views/tousNosProduits.php");
                 break;
             default:

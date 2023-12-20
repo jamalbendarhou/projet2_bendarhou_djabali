@@ -1,7 +1,7 @@
 <?php
 require_once('../models/ProductModel.php');
 
-
+//controleur pour la pages de tous nos produit pour l affichage de tt les items 
 
 class ProductController
 {

@@ -34,7 +34,7 @@ class Crud
         return $data;
     }
 
-    // Methode pour un élément d'une table avec son id 
+   
     public function getById(string $table, int $id): array
     {
         $PDOStatement = $this->connexion->prepare("SELECT * FROM $table WHERE id = :id");
@@ -44,7 +44,7 @@ class Crud
         return $data;
     }
 
-    // Methode pour ajouter un item 
+    
     public function add(string $request, array $itemdata): int|bool
     {
         $PDOStatement = $this->connexion->prepare($request);
@@ -62,14 +62,14 @@ class Crud
         return $this->connexion->lastInsertId();
     }
 
-    // Methode pour récupérer un seul résultat
+    
     public function getSingleResult(string $query, $params = array())
     {
         $stmt = $this->executeQuery($query, $params);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    // Methode pour exécuter une requête
+    
     protected function executeQuery(string $query, array $params = array())
     {
         $stmt = $this->connexion->prepare($query);

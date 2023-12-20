@@ -1,16 +1,12 @@
 <?php
 
 include '../controllers/ProductController.php';
-
-// Inclure le header
 include '../public/header.php';
 echo "<br><br><br>";
 
 $controller = new ProductController();
 
 $products = $controller->getAllProducts();
-
-// Afficher les produits
 if (is_array($products)) {
     foreach ($products as $product) {
         ?>
@@ -27,6 +23,5 @@ if (is_array($products)) {
     echo "Aucun produit trouvé.";
 }?><br><br><br><br>
 <?php
-// Inclure le footer
 include '../public/footer.php';
 ?>

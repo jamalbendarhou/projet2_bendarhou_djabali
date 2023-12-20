@@ -1,6 +1,7 @@
 <?php
 require_once('../models/ProduitModel.php');
-
+// controlleur pour la page de gestion des produits 
+//l ajout la modification la supression ...
 class ProduitController
 {
     protected $produitModel;

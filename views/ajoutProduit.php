@@ -1,11 +1,11 @@
 <?php
-// ajoutProduit.php
+// page pour l ajout d un produit 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     require_once('../controllers/ProduitController.php');
     $produitController = new ProduitController();
 
-    // Récupérer les données du formulaire
+    
     $data = array(
         'name' => $_POST['name'],
         'qtty' => $_POST['qtty'],
@@ -16,11 +16,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $produitController->ajouterProduit($data);
 
-    // Redirection ou affichage de message après ajout
+    
     header("Location: manage_product.php");
     exit();
 } else {
-    // Afficher le formulaire d'ajout
+    
     ?>
 
 <!DOCTYPE html>
@@ -30,11 +30,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestion des produits</title>
     <link rel="stylesheet" type="text/css" href="../public/styles.css">
-    <!-- FontAwesome CSS -->
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="..." crossorigin="anonymous">
-    <!-- Bootstrap CSS -->
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" integrity="...">
-    <!-- Bootstrap JavaScript (si nécessaire) -->
+   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="..." crossorigin="anonymous"></script>
 </head>
 
@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
 
             <form enctype="multipart/form-data" method="post" action="">
-                <!-- Ajout des champs spécifiques à votre base de données -->
+                
                 <div class="row">
                     <div class="col-md-4">
                         <label for="image">Image</label>

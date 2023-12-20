@@ -11,11 +11,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $lname = $_POST['lname'];
     $password = $_POST['password'];
     $roleId = $_POST['role']; 
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT); // hashage du code 
 
-    $billingAddressId = 1; 
-    $shippingAddressId = 1; 
-
+    $billingAddressId = 1;  // id de l adresse fictif 
+    $shippingAddressId = 1;  
+                           // requete d insertion de l utilisateur 
     $insertQuery = "INSERT INTO `user` (`email`, `token`, `username`, `fname`, `lname`, `pwd`, `billing_address_id`, `shipping_address_id`, `role_id`) 
                     VALUES (:email, 'random_token_generated_here', :username, :fname, :lname, :hashedPassword, :billingAddressId, :shippingAddressId, :roleId)";
 
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    
     if ($stmt->execute()) {
         echo "Inscription réussie !";
-        
+        // redirection en cas de succes 
         header("Location: ../views/login.php"); 
         exit();
     } else {

@@ -1,19 +1,19 @@
 <?php
-// Import du contrôleur des utilisateurs
+
 require_once('../controllers/UserController.php');
 
-// Vérification si l'ID de l'utilisateur à modifier est présent dans l'URL
+
 if(isset($_GET['id']) && !empty($_GET['id'])) {
-    // Récupération de l'ID de l'utilisateur à modifier depuis l'URL
+    
     $user_id = $_GET['id'];
 
-    // Création d'une instance de UserController
+    
     $userController = new UserController();
 
-    // Récupération des détails de l'utilisateur à partir de son ID
+    
     $user = $userController->getUserById($user_id);
 
-    // Vérification si l'utilisateur existe
+    /
     if(!$user) {
         echo "Utilisateur non trouvé.";
         exit;
@@ -24,22 +24,20 @@ if(isset($_GET['id']) && !empty($_GET['id'])) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Vérifiez les données soumises et mettez à jour les détails de l'utilisateur
     $userDetails = array(
-        'id' => $user_id, // Récupérez l'ID de l'utilisateur depuis l'URL
+        'id' => $user_id, 
         'email' => $_POST['email'],
         'username' => $_POST['username'],
         'fname' => $_POST['fname'],
         'lname' => $_POST['lname'],
-        'password' => $_POST['password'], // Vous pouvez appliquer les validations nécessaires au mot de passe
+        'password' => $_POST['password'], 
         'role_id' => $_POST['role']
-        // Ajoutez d'autres champs de formulaire pour d'autres détails de l'utilisateur si nécessaire
+        
     );
 
-    // Création d'une instance de UserController
+
     $userController = new UserController();
 
-    // Appel de la méthode updateUser pour mettre à jour les détails de l'utilisateur
     $userController->updateUser($userDetails);
 }
 ?>
@@ -97,11 +95,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <option value="1" <?php if ($user['role_id'] == 1) echo 'selected'; ?>>Super Admin</option>
                                 <option value="2" <?php if ($user['role_id'] == 2) echo 'selected'; ?>>Admin</option>
                                 <option value="3" <?php if ($user['role_id'] == 3) echo 'selected'; ?>>Client</option>
-                                <!-- Ajoutez d'autres options pour d'autres rôles si nécessaire -->
+                               
                             </select>
                         </div>
 
-                        <!-- Ajoutez d'autres champs de formulaire pour d'autres détails de l'utilisateur si nécessaire -->
+                       
 
                         <button type="submit" class="btn">Enregistrer les modifications</button>
                     </form>

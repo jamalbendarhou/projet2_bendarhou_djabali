@@ -43,9 +43,9 @@ class UserModel extends Crud
         $username = $data['username'];
         $email = $data['email'];
         $role_id = $data['role_id'];
-        $password = $data['password']; // Nouveau mot de passe
+        $password = $data['password']; 
     
-        // Hasher le nouveau mot de passe
+        
         $hashed_password = password_hash($password, PASSWORD_BCRYPT);
     
         $query = "UPDATE user SET username = :username, email = :email, pwd = :password, role_id = :role_id WHERE id = :id";
@@ -53,15 +53,15 @@ class UserModel extends Crud
             ':id' => $id,
             ':username' => $username,
             ':email' => $email,
-            ':password' => $hashed_password, // Utiliser le mot de passe hashé
+            ':password' => $hashed_password, 
             ':role_id' => $role_id
-            // Ajoutez d'autres paramètres pour les champs à mettre à jour...
+            
         );
     
         $stmt = $this->connexion->prepare($query);
         $stmt->execute($params);
     
-        return $stmt->rowCount() > 0; // Retourne vrai si au moins une ligne a été mise à jour
+        return $stmt->rowCount() > 0; 
     }
 
     public function getAllUsers(): array {
