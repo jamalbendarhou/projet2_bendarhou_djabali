@@ -1,3 +1,28 @@
+<!-- nous avons essayer de faire les routes avec un fichier routes.php qui contient un tableau associatif 
+et avec une redirection tel que celle la header("Location: index.php?route=login.php"); au lieu  header("Location:  ../views/login.php");
+nous avons trouver une difficulter !!!
+    
+    <?php
+// $routes = include('routes.php');
+// $requestedRoute = $_GET['route'] ?? 'index';
+
+// var_dump($requestedRoute);
+
+// // Vérifiez si $routes est un tableau
+// if (is_array($routes) && array_key_exists($requestedRoute, $routes)) {
+//     $page = $routes[$requestedRoute];
+//     $filePath = "views/$page";
+
+//     // Assurez-vous que le fichier existe avant de l'inclure
+//     if (file_exists($filePath)) {
+//         include($filePath);
+//     } else {
+//         echo "Fichier non trouvé";
+//     }
+// } else {
+//     echo "Route non valide";
+// }
+//?> -->
 <div class="container_site">
 <!DOCTYPE html>
 <html lang="en">
